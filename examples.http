@@ -1,0 +1,79 @@
+### DIGEMID Medicine Search API - Ejemplos HTTP
+### Usar con extensiones como REST Client para VS Code
+
+### Variables
+@baseUrl = http://localhost:8000
+@apiUrl = {{baseUrl}}/api/v1/medicines
+
+
+### Health Check - Root
+GET {{baseUrl}}/
+
+
+### Health Check - General
+GET {{baseUrl}}/health
+
+
+### Health Check - Medicines Service
+GET {{apiUrl}}/health
+
+
+### Buscar medicamento - APRONAX en Lima
+POST {{apiUrl}}/search
+Content-Type: application/json
+
+{
+  "nombre_medicamento": "APRONAX",
+  "departamento": "LIMA",
+  "provincia": "LIMA",
+  "distrito": "PUENTE PIEDRA",
+  "limite_resultados": 10
+}
+
+
+### Buscar medicamento - PARACETAMOL
+POST {{apiUrl}}/search
+Content-Type: application/json
+
+{
+  "nombre_medicamento": "PARACETAMOL",
+  "departamento": "LIMA",
+  "provincia": "LIMA",
+  "distrito": "PUENTE PIEDRA",
+  "limite_resultados": 5
+}
+
+
+### Buscar medicamento - IBUPROFENO
+POST {{apiUrl}}/search
+Content-Type: application/json
+
+{
+  "nombre_medicamento": "IBUPROFENO",
+  "departamento": "LIMA",
+  "provincia": "LIMA",
+  "distrito": "LIMA",
+  "limite_resultados": 15
+}
+
+
+### Buscar medicamento - Solo nombre (usa defaults)
+POST {{apiUrl}}/search
+Content-Type: application/json
+
+{
+  "nombre_medicamento": "APRONAX"
+}
+
+
+### Buscar medicamento - Máximo resultados permitidos
+POST {{apiUrl}}/search
+Content-Type: application/json
+
+{
+  "nombre_medicamento": "NAPROXENO",
+  "departamento": "LIMA",
+  "provincia": "LIMA",
+  "distrito": "PUENTE PIEDRA",
+  "limite_resultados": 50
+}
